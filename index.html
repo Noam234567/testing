@@ -1,23 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <title>Siri Takeover</title>
   <style>
-    html, body { margin: 0; padding: 0; height: 100%; overflow: hidden; background: black; }
-    video { width: 100vw; height: 100vh; object-fit: cover; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+      background: black;
+    }
+    video {
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+    }
   </style>
 </head>
 <body>
-  <video src="https://www.w3schools.com/html/mov_bbb.mp4" autoplay muted playsinline></video>
+  <video
+    src="https://www.w3schools.com/html/mov_bbb.mp4"
+    autoplay
+    muted
+    playsinline
+  ></video>
+
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
+    window.onload = () => {
       const vid = document.querySelector('video');
-      vid.addEventListener('canplay', () => {
-        if (vid.requestFullscreen) vid.requestFullscreen().catch(() => {});
-        vid.play();
-      });
-    });
+      vid.play().catch(() => {});
+      vid.requestFullscreen?.().catch(() => {});
+    };
   </script>
 </body>
 </html>
